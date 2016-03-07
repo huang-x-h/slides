@@ -398,13 +398,13 @@
 					- 依赖模块，可选
 					- 模块函数定义
 					
-						define("alpha", ["beta"], function (beta) {
-						  return {
-							verb: function() {
-							  return beta.verb();
-							}
-						  }	 
-						});
+							define("alpha", ["beta"], function (beta) {
+							  return {
+								verb: function() {
+								  return beta.verb();
+								}
+							  }	 
+							});
 					</script>
 				</section>
 				
@@ -416,9 +416,9 @@
 					- 模块名称，可选
 					- 执行函数
 					
-						require(['a', 'b'], function (a, b) {
-						  //modules a and b are now available for use.
-						});
+							require(['a', 'b'], function (a, b) {
+							  //modules a and b are now available for use.
+							});
 					</script>
 				</section>
 				
