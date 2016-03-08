@@ -195,8 +195,11 @@ Create by [huang.xinghui](http://huang-x-h.github.io/) / [@Github](https://githu
 	
 	foo.apply(bar, [1, 2, 3]); // 参数数组传递
 	foo.call(bar, 1, 2, 3);
+	foo.bind(bar, 1, 2, 3)(); // ie9+ 支持
 	
 `Tips:` 方便记忆 `apply` 等同于 `array`, `call` 等同于 `comma` 
+
+[Function Prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype)
 
 ---
 
