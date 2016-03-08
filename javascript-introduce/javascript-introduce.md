@@ -335,8 +335,9 @@ require(Array, Function)
 					
 - [JavaScript Garden](http://bonsaiden.github.io/JavaScript-Garden/zh/)			
 - [Learning Advanced JavaScript](http://ejohn.org/apps/learn/)
-- [Exploringjs](http://exploringjs.com/es6/)
+- [Speaking JavaScript](http://speakingjs.com/es5/index.html)
 - [ES6-features](http://es6-features.org/)
+- [Exploring ES6](http://exploringjs.com/es6/)
 - [ES6 In Depth](https://hacks.mozilla.org/category/es6-in-depth/)
 				
 ---
