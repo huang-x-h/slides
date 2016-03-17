@@ -403,7 +403,7 @@ require(Array, Function)
 - [ES6-features](http://es6-features.org/)
 - [Exploring ES6](http://exploringjs.com/es6/)
 - [ES6 In Depth](https://hacks.mozilla.org/category/es6-in-depth/)
-				
+
 ---
 
 # THE END
