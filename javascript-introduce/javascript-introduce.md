@@ -70,11 +70,15 @@ Create by [huang.xinghui](http://huang-x-h.github.io/) / [@Github](https://githu
 
 [`ES6 Class`](http://exploringjs.com/es6/ch_classes.html) 
 
+---
+
 # Function - Currying 柯理化
 
 什么是柯理化
 
 柯理化是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术 [Wiki](https://zh.wikipedia.org/wiki/%E6%9F%AF%E9%87%8C%E5%8C%96)
+
+---
 
 # Function - Currying Example
 
@@ -91,6 +95,8 @@ Create by [huang.xinghui](http://huang-x-h.github.io/) / [@Github](https://githu
 
 	var greetHello = greetCurried("Hello");
 	greetHello("Han Meimei");
+
+---
 
 # Feature 语言特性
 					
