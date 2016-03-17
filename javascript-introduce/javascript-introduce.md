@@ -3,7 +3,7 @@ Create by [huang.xinghui](http://huang-x-h.github.io/) / [@Github](https://githu
 
 ---
 
-# Topic					
+# Agenda					
 - Function 函数
 - Feature 语言特性
 - Module 模块化
@@ -19,12 +19,34 @@ Create by [huang.xinghui](http://huang-x-h.github.io/) / [@Github](https://githu
 
 ---
 
+# Function - Declaration
+
+	function name([param[, param[, ... param]]]) {
+	  statements
+	}
+
+- `name` 函数名称
+- `param` 函数参数
+- `statements` 函数体
+
+---
+
+# Function - Constructor
+
+函数定义还可以通过构造函数
+
+**不推荐**，因为函数体定义为字符串，会阻止浏览器优化处理
+
+	new Function (arg1, arg2, ... argN, functionBody)
+
+---
+
 # Function - Example
 					
 	function foo() {}
 	
 	var foo = function() {}
-	
+
 	// 高阶函数
 	function foo() {
 	  function bar() {}
@@ -33,6 +55,42 @@ Create by [huang.xinghui](http://huang-x-h.github.io/) / [@Github](https://githu
 	}
 
 ---
+
+# Function - Class 类
+
+`JavaScript` 如何实行类？
+
+	function Person() {
+	  ...
+	}
+
+	var p1 = new Person();
+
+`new` 关键字
+
+[`ES6 Class`](http://exploringjs.com/es6/ch_classes.html) 
+
+# Function - Currying 柯理化
+
+什么是柯理化
+
+柯理化是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术 [Wiki](https://zh.wikipedia.org/wiki/%E6%9F%AF%E9%87%8C%E5%8C%96)
+
+# Function - Currying Example
+
+	var greet = function(greeting, name) {
+	  console.log(greeting + ", " + name);
+	}
+
+	// 柯理化
+	var greetCurried = function(greeting) {
+	  return function(name) {
+	    console.log(greeting + ", " + name);
+	  };
+	};
+
+	var greetHello = greetCurried("Hello");
+	greetHello("Han Meimei");
 
 # Feature 语言特性
 					
