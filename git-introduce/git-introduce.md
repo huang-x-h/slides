@@ -36,7 +36,7 @@ Git 是一个分散式版本控制软件，最初由 Linus Torvalds 创作，于
  - Staging 暂存区域
  - Local Repository 本地仓库
  - Remote Repository 远程仓库
- 
+
 ---
 
 # Introduce
@@ -116,7 +116,7 @@ Woking Directory/Staging/Local Repository/Remote Repository 关系转换
 - 暂存区域与当前HEAD提交之间不同的文件
 - 工作目录与暂存区域之间不同的文件
 - 工作目录未曾被 `git` 追踪的文件
-	
+
 ---
 
 # git remote
@@ -410,7 +410,7 @@ Use your configured merge tool to solve conflicts
 删除分支
 
 	$ git branch -D featureA
-	
+
 --
 
 更新本地分支
@@ -430,33 +430,35 @@ Fork 仓库
 克隆 Fork 仓库
 
 	$ git clone https://gitlab.com/huang.xinghui/helloworld.git
-	
+
 --
 
 关联上游版本库
 
 	$ git remote add upstream https://gitlab.com/gitlab-org/helloworld.git
-	
+
 --
 
 创建分支
 
 	$ git checkout -b featureA
 
---	
+--
 
 实现处理
 
 	$ git add/commit(change implementation)	
-	
+
 --
 
 提交分支
 
 	$ git push origin featureA
+
 --
 
 提交 MergeRequest
+
 --
 
 安排人员代码走查，测试验证
@@ -470,7 +472,7 @@ Fork 仓库
 删除分支
 
 	$ git branch -D featureA
-	
+
 --
 
 同步上游版本库内容
