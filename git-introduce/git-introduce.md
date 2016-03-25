@@ -270,6 +270,8 @@ Woking Directory/Staging/Local Repository/Remote Repository 关系转换
 - git revert
 - git checkout
 
+[Detail](https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting/commit-level-operations)
+
 ---
 
 # git reset
@@ -350,11 +352,64 @@ Woking Directory/Staging/Local Repository/Remote Repository 关系转换
 
 	$ git mergetool
 	
-Use your configured merge tool to solve conflicts
+使用配置的合并工具进行处理
+
+	$ git config --global merge.tool bc3
+	
+配置合并工具
+	
+[Windows Git Diff/Merge Tool Configuration](https://gist.github.com/dahlbyk/1950155)
 
 ---
 
-# Merge - git rebase
+# git rebase
+
+	$ git rebase master
+	
+合并 master 到该分支
+	
+	$ git rebase -i master
+
+打开交互命令合并 master 到该分支
+
+---
+
+# rebase vs merge
+
+[Detail](https://www.atlassian.com/git/tutorials/merging-vs-rebasing/the-golden-rule-of-rebasing)
+
+--
+
+![](images/01.png)
+
+--
+
+![](images/02.png)
+
+	$ git checkout feature
+	$ git merge master
+	
+会在 feature 分支上创建一个新的合并记录
+
+当 master 活动频繁时，feature每次同步都会产生新的合并，不方便开发者历史查看
+
+--
+
+![](images/03.png)
+
+	$ git checkout feature
+	$ git rebase master
+
+移动整个 feature 分支到 master 分支后面，重写历史记录，为每个 commit 重新创建
+
+最大的好处，使用 rebase 可以有一个干净的版本历史
+
+--
+
+merge 一般用在把私有分支合并到公共分支
+rebase 一般用于共分支合并到私有分支
+
+公用的分支，不要做 rebase 合并而是采用 merge 合并
 
 ---
 
@@ -416,7 +471,7 @@ Use your configured merge tool to solve conflicts
 更新本地分支
 
 	$ git pull origin master
-	
+
 ---
 
 # Fork repository
@@ -492,6 +547,10 @@ Fork 仓库
 	
 查看文件每行代码的作者
 
+	$ git pull --rebase <branch>
+
+以 rebase 方法同步分支，本地暂存记录会重新插入	
+
 ---
 
 # Resource
@@ -499,6 +558,7 @@ Fork 仓库
 - [github-git-cheat-sheet](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf)
 - [git-cheatsheet](http://ndpsoftware.com/git-cheatsheet.html)
 - [Pro Git中文版](https://git-scm.com/book/zh/v2)
+- [常用 Git 命令清单](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
 
 ---
 
