@@ -197,7 +197,7 @@ Woking Directory/Staging/Local Repository/Remote Repository 关系转换
 
 ---
 
-实际使用还会需要查看历史，回退文件版本，分支合并，冲突
+实际使用还会需要查看历史，版本回退，分支合并，解决冲突
 
 ---
 
@@ -376,11 +376,15 @@ Woking Directory/Staging/Local Repository/Remote Repository 关系转换
 
 # rebase vs merge
 
+两者有什么不同呢
+
 [Detail](https://www.atlassian.com/git/tutorials/merging-vs-rebasing/the-golden-rule-of-rebasing)
 
 --
 
 ![](images/01.png)
+
+在 feature 分支开发， master 有新的提交需要合并
 
 --
 
