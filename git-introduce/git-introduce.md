@@ -43,7 +43,7 @@ Git 是一个分散式版本控制软件，最初由 Linus Torvalds 创作，于
 
 Woking Directory/Staging/Local Repository/Remote Repository 关系转换
 
-![](images/git.jpg)
+![](https://raw.githubusercontent.com/huang-x-h/slides/gh-pages/git-introduce/images/git.jpg)
 
 ---
 
@@ -60,7 +60,7 @@ Woking Directory/Staging/Local Repository/Remote Repository 关系转换
 # Git flow
 
 `Git` 操作文件的状态变化周期
-![](images/file-lifecycle.png)
+![](https://raw.githubusercontent.com/huang-x-h/slides/gh-pages/git-introduce/images/file-lifecycle.png)
 
 ---
 
@@ -342,7 +342,7 @@ Woking Directory/Staging/Local Repository/Remote Repository 关系转换
 
 ---
 
-![](images/git-merge.png)
+![](https://raw.githubusercontent.com/huang-x-h/slides/gh-pages/git-introduce/images/git-merge.png)
 
 ---
 
@@ -350,11 +350,12 @@ Woking Directory/Staging/Local Repository/Remote Repository 关系转换
 
 ---
 
-	$ git mergetool
+
+    $ git mergetool
 	
 使用配置的合并工具进行处理
 
-	$ git config --global merge.tool bc3
+    $ git config --global merge.tool bc3
 	
 配置合并工具
 	
@@ -382,13 +383,13 @@ Woking Directory/Staging/Local Repository/Remote Repository 关系转换
 
 --
 
-![](images/01.png)
+![](https://raw.githubusercontent.com/huang-x-h/slides/gh-pages/git-introduce/images/01.png)
 
 在 feature 分支开发， master 有新的提交需要合并
 
 --
 
-![](images/02.png)
+![](https://raw.githubusercontent.com/huang-x-h/slides/gh-pages/git-introduce/images/02.png)
 
 	$ git checkout feature
 	$ git merge master
@@ -399,7 +400,7 @@ Woking Directory/Staging/Local Repository/Remote Repository 关系转换
 
 --
 
-![](images/03.png)
+![](https://raw.githubusercontent.com/huang-x-h/slides/gh-pages/git-introduce/images/03.png)
 
 	$ git checkout feature
 	$ git rebase master
@@ -410,8 +411,8 @@ Woking Directory/Staging/Local Repository/Remote Repository 关系转换
 
 --
 
-merge 一般用在把私有分支合并到公共分支
-rebase 一般用于共分支合并到私有分支
+- merge 一般用于私有分支合并到公共分支
+- rebase 一般用于公共分支合并到私有分支
 
 公用的分支，不要做 rebase 合并而是采用 merge 合并
 
@@ -440,18 +441,18 @@ rebase 一般用于共分支合并到私有分支
 
 	$ git checkout -b featureA
 
---	
+--
 
 实现处理
 
 	$ git add/commit(change implementation)	
-	
+
 --
 
 提交分支
 
 	$ git push origin featureA
-	
+
 --
 
 提交 MergeRequest
