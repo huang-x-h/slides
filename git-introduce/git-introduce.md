@@ -80,7 +80,7 @@ Woking Directory/Staging/Local Repository/Remote Repository 关系转换
 
 	$ git commit
 	
-提交更新
+提交暂存区域修改内容
 
 	$ git commit -a [-m 'msg']
 	
@@ -89,6 +89,10 @@ Woking Directory/Staging/Local Repository/Remote Repository 关系转换
 	$ git commit --amend [-m 'msg']
 		
 修改最后一次提交信息 (可用在漏提交内容或者提交信息写错)
+
+	$ git commit -- <file_name>
+	
+提交指定文件，不包括暂存区域修改内容
 
 ---
 
