@@ -110,7 +110,7 @@ User.find({}, function (err, users) {
 ---
 
 ## 程序性能耗费大部分是等待IO处理上
-![](images/io-cost.png)
+![](https://raw.githubusercontent.com/huang-x-h/slides/gh-pages/node-introduce/images/io-cost.png)
 
 ---
 
@@ -144,7 +144,7 @@ Node.js uses an event-driven, non-blocking I/O model that makes it lightweight a
 
 ---
 
-![](images/non-blocking.png)
+![](https://raw.githubusercontent.com/huang-x-h/slides/gh-pages/node-introduce/images/non-blocking.png)
 
 ---
 
@@ -178,7 +178,7 @@ Node.js
 ---
 
 Node.js 目前版本维护信息
-![](images/schedule.png)
+![](https://raw.githubusercontent.com/huang-x-h/slides/gh-pages/node-introduce/images/schedule.png)
 https://github.com/nodejs/LTS
 
 ---
