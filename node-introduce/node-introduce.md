@@ -81,6 +81,26 @@ net.createServer((socket) => {
 ## 访问数据库 mongodb
 
 ```js
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://127.0.0.1:27017/node_chat', function (error) {
+  if (error) {
+    console.log(error);
+  }
+});
+
+// Mongoose Schema definition
+const Schema = mongoose.Schema;
+var UserSchema = new Schema({
+  username: String,
+  password: String
+});
+
+// Mongoose Model definition
+var User = mongoose.model('users', UserSchema);
+
+User.find({}, function (err, users) {
+  console.log(users);
+});
 ```
 
 ---
@@ -119,7 +139,7 @@ Node.js uses an event-driven, non-blocking I/O model that makes it lightweight a
 
 ## 术语解释
 - I/O (Input/Output) 一般指和硬盘/驱动器等交互
-- Non-blocking 通常一个请求服务进来，应用处理该请求，会暂停其他操作一直到请求处理结束
+- Non-blocking 通常一个请求服务进来，应用处理该请求，会暂停其他操作一直到请求处理结束。当请求过多时就会阻塞，验证影响应用使用
 - Event-Driven 常用在和UI应用交互，典型的应用场景：JavaScript和DOM交互
 
 ---
@@ -136,7 +156,8 @@ Node.js uses an event-driven, non-blocking I/O model that makes it lightweight a
 - v8 高性能JavaScript引擎，Google出品，Chrome也用
 - [libev](http://software.schmorp.de/pkg/libev.html) C语言库，提供异步特性，包含事件轮询/文件处理/网络处理/线程池等
 - Application/Modules Node.js核心模块
-- Bindings/Addons 提供JavaScript和Node.js里C/C++代码交互
+- Bindings 提供JavaScript和Node.js里C/C++代码交互
+- C/C++ Addons Node.js内部核心库 (zlib/OpenSSL等)
 
 ---
 
