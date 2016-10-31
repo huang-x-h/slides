@@ -149,13 +149,13 @@ Node.js uses an event-driven, non-blocking I/O model that makes it lightweight a
 ---
 
 看看 Node.js 的架构设计图
-![](images/architecture.png)
+![](https://raw.githubusercontent.com/huang-x-h/slides/gh-pages/node-introduce/images/architecture.png)
 
 ---
 
-- v8 高性能JavaScript引擎，Google出品，Chrome也用
+- v8 高性能JavaScript引擎，Google出品
 - [libev](http://software.schmorp.de/pkg/libev.html) C语言库，提供异步特性，包含事件轮询/文件处理/网络处理/线程池等
-- Application/Modules Node.js核心模块
+- Application/Modules Node.js核心模块 (fs/path等)
 - Bindings 提供JavaScript和Node.js里C/C++代码交互
 - C/C++ Addons Node.js内部核心库 (zlib/OpenSSL等)
 
@@ -183,7 +183,7 @@ https://github.com/nodejs/LTS
 
 ---
 
-使用Node.js的公司有 GoDaddy, Groupon, IBM, LinkedIn, Microsoft, Netflix, PayPal, Walmart 等等.
+使用Node.js的公司有 GoDaddy, Groupon, IBM, LinkedIn, Microsoft, Netflix, PayPal, Walmart, Alibaba 等等.
 
 ---
 
