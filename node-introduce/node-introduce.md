@@ -29,7 +29,7 @@ Open-source, cross-plaform JavaScript runtime environment.
 ## Backgroud
 
 - 2009年由 Ryan Dahl 创建
-- 由 Node.js Foundation 维护
+- 目前由 Node.js Foundation 维护
 - 开源在 [github](https://github.com/nodejs/node)
 
 > [Wiki Detail](https://en.wikipedia.org/wiki/Node.js)
@@ -73,7 +73,7 @@ net.createServer((socket) => {
   socket.on('data', function(data) {
     socket.write(data);
   });
-});
+}).listen(3000);
 ```
 
 ---
@@ -102,6 +102,12 @@ User.find({}, function (err, users) {
   console.log(users);
 });
 ```
+
+---
+
+## 创建一系列编译工具
+
+yo/grunt/gulp/browserify/webpack 等等
 
 ---
 
@@ -137,13 +143,6 @@ Node.js uses an event-driven, non-blocking I/O model that makes it lightweight a
 
 ---
 
-## 术语解释
-- I/O (Input/Output) 一般指和硬盘/驱动器等交互
-- Non-blocking 通常一个请求服务进来，应用处理该请求，会暂停其他操作一直到请求处理结束。当请求过多时就会阻塞，验证影响应用使用
-- Event-Driven 常用在和UI应用交互，典型的应用场景：JavaScript和DOM交互
-
----
-
 ![](https://raw.githubusercontent.com/huang-x-h/slides/gh-pages/node-introduce/images/non-blocking.png)
 
 ---
@@ -171,19 +170,27 @@ Node.js
 
 ## Node.js 生态系统
 
-[npm](https://www.npmjs.com/) (Node Package Manager)
+[npm](https://www.npmjs.com/) (Node Package Manager)模块包管理，是世界上最大开源库生态系统
 
-提供所有开源模块，如 express.js/socket.io
+方便发布/下载Node模块，如 express.js/socket.io
 
 ---
 
-Node.js 目前版本维护信息
+Node.js 目前版本维护情况
 ![](https://raw.githubusercontent.com/huang-x-h/slides/gh-pages/node-introduce/images/schedule.png)
 https://github.com/nodejs/LTS
 
 ---
 
+Node.js 对ECMAScript2015的特性支持很好
+![](images/es2015-support.png)
+http://node.green/
+
+---
+
 使用Node.js的公司有 GoDaddy, Groupon, IBM, LinkedIn, Microsoft, Netflix, PayPal, Walmart, Alibaba 等等.
+
+https://github.com/nodejs/node/wiki/Projects,-Applications,-and-Companies-Using-Node
 
 ---
 
@@ -193,7 +200,7 @@ Jeff Atwood, co-founder of Stack Overflow 曾写过这样一句话
 
 ---
 
-那还有什么理由不去使用呢 :)
+## Any Questions?
 
 ---
 
@@ -204,10 +211,6 @@ Jeff Atwood, co-founder of Stack Overflow 曾写过这样一句话
 - [Node入门](http://www.nodebeginner.org/index-zh-cn.html)
 - [Understanding the Node.js Event Loop](https://nodesource.com/blog/understanding-the-nodejs-event-loop/)
 - [Architecture of Node.js’ Internal Codebase](https://medium.com/yet-another-node-js-blog/architecture-of-node-js-internal-codebase-57cd8376b71f)
-
----
-
-## Any Questions?
 
 ---
 
