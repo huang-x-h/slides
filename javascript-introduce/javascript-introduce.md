@@ -161,24 +161,23 @@ Create by [huang.xinghui](http://huang-x-h.github.io/) / [@Github](https://githu
 					
 原型链上定义的属性，都是可以实例继承的
 
-一般原型链上定义方法函数，如果要在原型链上定义属性，一定要注意
+一般原型链上定义方法函数，如果要在原型链上定义属性(可引用，一定要注意
 
 ---
 
 # Prototype - Trap
 					
-	function Person() {
+	function Foo() {
 	}
-	
-	Person.prototype.name = 'Person';
-	
-	var p1 = new Person();
-	var p2 = new Person();
-	
-	p1.name = 'Han Meimei';
-	p2.name = 'Li Lei';
-	
-	console.log(p1.name);
+
+	Foo.prototype.field = [1, 2, 3];
+
+	var f1 = new Foo();
+	var f2 = new Foo();
+
+	f1.field.push(4);
+
+	console.log(f2.field);
 
 ---
 
@@ -307,6 +306,29 @@ Create by [huang.xinghui](http://huang-x-h.github.io/) / [@Github](https://githu
 
 	// `memberfield` 为 `private` 变量
 	// `membermethod` 为 `private` 方法
+
+---
+
+# Closure - Trap
+
+常见循环异步调用问题
+
+	var data = [1, 2, 3];
+	for (var i = 0, n = data.length; i < n; i++) {
+		setTimeout(function() {
+			console.log(data[i]);
+		}, 100);
+	}
+	// output: undefined, undefined, undefined
+	
+	for (var i = 0, n = data.length; i < n; i++) {
+		(function(value) {
+			setTimeout(function() {
+				console.log(value);
+			}, 100);
+		})(data[i]);
+	}
+	// output: 1, 2, 3
 
 ---
 
