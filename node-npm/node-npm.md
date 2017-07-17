@@ -3,7 +3,7 @@ Create by [huang.xinghui](http://huang-x-h.github.io/) / [@Github](https://githu
 
 ---
 
-# Agenda
+## Agenda
 
 - What's npm ?
 - How to use npm?
@@ -11,7 +11,7 @@ Create by [huang.xinghui](http://huang-x-h.github.io/) / [@Github](https://githu
 
 ---
 
-What's npm ?
+# What's npm ?
 
 ---
 
@@ -30,11 +30,11 @@ What's npm ?
 
 ---
 
-npm (Node Package Mananger) makes it easy for JavaScript developers to share and reuse code, and it makes it easy to update the code that you're sharing.
+**npm (Node Package Mananger)** makes it easy for JavaScript developers to share and reuse code, and it makes it easy to update the code that you're sharing.
 
 ---
 
-How to use npm?
+# How to use npm?
 
 ---
 
@@ -48,35 +48,41 @@ How to use npm?
 
 ## Install Packages in Global Mode
 
-Regular: `npm install <pkg-name> --global`
+```
+Regular: npm install <pkg-name> --global
 
-Shorthand: `npm i <pkg-name> -g`
+Shorthand: npm i <pkg-name> -g
+```
 
 ---
 
 ## Install Packages in Local Mode
 
-Regular: `npm install <pkg-name>`
+```
+Regular: npm install <pkg-name>
 
-Shorthand: `npm i <pkg-name>`
+Shorthand: npm i <pkg-name>
+```
 
 ---
 
 ## Listing Packages
 
-Regular: `npm list --global`
+```
+Regular: npm list --global
 
-Shorthand: `npm ls --depth 0`
+Shorthand: npm ls --depth 0
+```
 
 ---
 
-Maintenance 🔧
+## Maintenance 🔧
 
 安装本地模块后，如何进行维护？
 
 ---
 
-package.json
+## package.json
 
 [Sample](https://github.com/huang-x-h/Bean.js/blob/master/package.json)
 
@@ -84,9 +90,11 @@ package.json
 
 ## Creating a package.json
 
-`npm init`
+```
+npm init
+```
 
-Sample Tiem 🕙
+Sample Time 🕙
 
 ---
 
@@ -98,38 +106,47 @@ Automate npm init with defaults [npm-init](https://github.com/huang-x-h/npm-init
 
 ## Managing Dependencies with package.json
 
+```
+Regular: npm install --save-dev <pkg-name> // 开发依赖
+
+Shorthand: npm i -D <pkg-name>
+
+Regular: npm install --save <pkg-name>
+
+Shorthand: npm i -S <pkg-name>
+```
+
+Note:
 Installing a package and save it as a devDependency (devDependencies are packages used for development purposes, for example for running tests or transpiling code.
 )
-
-Regular: `npm install --save-dev <pkg-name>`
-Shorthand: `npm i -D <pkg-name>`
-
-Installing a package and save it as a dependency
-
-Regular: `npm install --save <pkg-name>`
-Shorthand: `npm i -S <pkg-name>`
 
 ---
 
 ## Uninstall Packages
 
-Regular: `npm uninstall <pkg-name>` // uninstall local package
-Shorthand: `npm up <pkg-name>`
+```
+Regular: npm uninstall <pkg-name> // uninstall local package
 
-Regular: `npm uninstall --global <pkg-name>` // uninstall global package
-Shorthand: `npm up -g <pkg-name>`
+Shorthand: npm up <pkg-name>
+
+Regular: npm uninstall --global <pkg-name> // uninstall global package
+
+Shorthand: npm up -g <pkg-name>
+```
 
 ---
 
 ## Updating Packages
 
-`npm update <pkg-name>`
+```
+npm update <pkg-name>
 
-`npm outdated`
+npm outdated
+```
 
 ---
 
-npm version
+# npm version
 
 ---
 
@@ -137,7 +154,7 @@ npm version
 
 `npm install <pkg-name>@version`
 
-语义化版本 (semver)[https://docs.npmjs.com/misc/semver]
+语义化版本 [semver](https://docs.npmjs.com/misc/semver)
 
 ```
 [major, minor, patch]
@@ -150,7 +167,7 @@ npm version
 
 ---
 
-npm scope
+# npm scope
 
 ---
 
@@ -168,7 +185,7 @@ Scopes are like namespaces for npm modules
 
 ---
 
-npm cache
+# npm cache
 
 ---
 
@@ -184,7 +201,7 @@ When npm installs a package it keeps a copy, so the next time you want to instal
 
 ---
 
-npm script
+# npm script
 
 ---
 
@@ -205,17 +222,17 @@ npm does a little trick and adds an additional folder to our PATH, <project-dire
 
 [Detail](https://docs.npmjs.com/misc/scripts)
 
-Sample Tiem 🕙 
+Sample Time 🕙 
 
 ---
 
-How to create node module package?
+# How to create node module package?
 
 ---
 
 ## Creating Node.js Module
 
-Sample Tiem 🕙
+Sample Time 🕙
 
 ---
 
@@ -246,18 +263,15 @@ http://npm.ztesoft.com/
 
 ## Resources
 
-> https://docs.npmjs.com/
-> 
-> https://www.sitepoint.com/beginners-guide-node-package-manager/
->
-> https://medium.freecodecamp.com/8-npm-tricks-you-can-use-to-impress-your-colleagues-dbdae1ef5f9e
->
-> https://docs.npmjs.com/how-npm-works/npm3-dupe
+- https://docs.npmjs.com/
+- https://www.sitepoint.com/beginners-guide-node-package-manager/
+- https://medium.freecodecamp.com/8-npm-tricks-you-can-use-to-impress-your-colleagues-dbdae1ef5f9e
+- https://docs.npmjs.com/how-npm-works/npm3-dupe
 
 ---
 
-Any Question ❓
+# Any Question ❓
 
 ---
 
-Thanks 😊
+# Thanks 😊
