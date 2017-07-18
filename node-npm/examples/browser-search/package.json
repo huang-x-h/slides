@@ -8,7 +8,9 @@
   "description": "browser search",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "node pretest.js",
+    "test": "node test.js",
+    "posttest": "node posttest.js"
   },
   "keywords": [
     "browser"
