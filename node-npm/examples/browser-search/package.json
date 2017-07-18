@@ -1,0 +1,21 @@
+{
+  "name": "browser-search",
+  "version": "1.0.0",
+  "bin": {
+    "bs": "./cli.js"
+  },
+  "preferGlobal": true,
+  "description": "browser search",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "browser"
+  ],
+  "author": "huang.xinghui <huang.x.hui@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "opn": "^5.1.0"
+  }
+}
