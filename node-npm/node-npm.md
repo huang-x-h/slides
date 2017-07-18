@@ -181,7 +181,7 @@ Scopes are like namespaces for npm modules
 
 ## Private npm registry
 
-(znpm(ZTEsoft npm))[http://npm.ztesoft.com/]
+[znpm(ZTEsoft npm)](http://npm.ztesoft.com/)
 
 ---
 
@@ -238,13 +238,27 @@ Sample Time 🕙
 
 ## Publishing npm packages
 
-`npm publish`
+```
+npm publish
+```
+
+Sample Time 🕙
 
 ---
 
-## znpm
+## Publishing znpm
 
 http://npm.ztesoft.com/
+
+Sample Time 🕙
+
+---
+
+## yarn vs npm
+
+[Yarn: A new package manager for JavaScript](https://code.facebook.com/posts/1840075619545360)
+
+[Detail](https://www.sitepoint.com/yarn-vs-npm/)
 
 ---
 
@@ -252,12 +266,6 @@ http://npm.ztesoft.com/
 
 - `npm outdated` Check for outdated packages
 - `npm search <pkg-name>` search packages
-
----
-
-## yarn vs npm
-
-
 
 ---
 
