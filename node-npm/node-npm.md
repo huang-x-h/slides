@@ -226,6 +226,17 @@ Sample Time 🕙
 
 ---
 
+## npx (npm package runner)
+
+```
+npx cowsay hello
+npx figlet-cli hello 
+```
+
+[Detail](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b)
+
+---
+
 # How to create node module package?
 
 ---
