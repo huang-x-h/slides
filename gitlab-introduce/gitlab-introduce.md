@@ -1,16 +1,6 @@
-# Gitlab 实战
+# Gitlab in Action
 
 Create by [huang.xinghui](http://huang-x-h.github.io/) / [@Github](https://github.com/huang-x-h)
-
----
-
-# Agenda
-
-- Basic Usage
-- Gitlab Flow
-- Gitlab CI
-- Gitlab Pages
-- Gitlab Bonus
 
 ---
 
@@ -20,16 +10,40 @@ https://about.gitlab.com/
 
 ---
 
+# Agenda
+
+- Gitlab Flow
+- Gitlab CI
+- Gitlab Pages
+- Gitlab Bonus
+
+---
+
 # Gitlab Flow
 
-- 本地的版本管理
-- 超轻量级分支创建
-- 强大的Merge功能
-- 世界最大的开源社区 [Github](https://github.com/)
+---
+
+![](./images/gitdashflow.png)
+
+See more http://nvie.com/posts/a-successful-git-branching-model/
+
+---
+
+- Start with an issue
+- WIP it!
+- Assign
+- Todos!
+- Code Review in Gitlab
+- Merge when build succeeds
+- Issues are closed after MR is merged
+
+---
 
 ---
 
 # Gitlab CI
+
+---
 
 Q: What is CI ?
 
@@ -140,14 +154,13 @@ job_name:
     - postgres
   allow_failure: true
 ```
+
 ---
 
 - `script` is a shell script which is executed by the Runner
 - `stage` allows to group jobs into different stages. Jobs of the same `stage` are executed in `parallel`
 - `only` and `except` are two parameters that set a job policy to limit when jobs are created
-...
-
----
+- ...
 
 About `.gitlab-ci.yml` configuration
 
@@ -155,14 +168,12 @@ See more https://docs.gitlab.com/ce/ci/yaml/README.html
 
 ---
 
-# What is Gitlb Runner ?
+# What is Gitlib Runner ?
 
 GitLab Runner is used to run your jobs and send the results back to GitLab
 
 - Shared Runner
 - Specific Runner
-
-See more https://docs.gitlab.com/runner/
 
 ---
 
@@ -180,9 +191,13 @@ See more https://docs.gitlab.com/runner/
 - Register GitLab Runner
 - Selecting the executor
 
+See more https://docs.gitlab.com/runner/
+
 ---
 
 # Gitlab Pages
+
+---
 
 Q: What is GitLab Pages?
 
@@ -229,19 +244,32 @@ See more https://docs.gitlab.com/ee/user/project/pages/introduction.html
 
 # Gitlab Bonus
 
-![](./images/ci.png)	
+---
+
+# Description templates
+
+- Creating issue templates
+	Create a new Markdown (`.md`) file inside the `.gitlab/issue_templates/
+directory` in your repository
+- Creating merge request templates
+	Create a new Markdown (`.md`) file inside the
+`.gitlab/merge_request_templates/` directory in your repository
 
 ---
 
-# Resource
+# GitLab Flavored Markdown 
 
-- [github-git-cheat-sheet](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf)
-- [git-cheatsheet](http://ndpsoftware.com/git-cheatsheet.html)
-- [Pro Git中文版](https://git-scm.com/book/zh/v2)
-- [常用 Git 命令清单](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
+- `#Issue` Related Issues `#23`
+- `!MR` Related Merge Request `!23`
+- `@yourname/groupname` specific user/group  `@huang.xinghui`
+- `:emoji:` Emoji `:+1:`
+
+See more https://docs.gitlab.com/ce/user/markdown.html
 
 ---
 
-# THE END
-						
-谢谢
+# Any Question ❓
+
+---
+
+# Thanks 😊
