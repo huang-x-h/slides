@@ -255,12 +255,12 @@ A: Create websites for your GitLab projects, groups, or user account.
 
 ---
 
-| Type of GitLab Pages | The name of the project created in GitLab |Website URL |
+| Type | Project name | Website URL |
 | --- | --- | --- |
 | User pages | username.example.io | http(s)://username.example.io |
 | Group pages | groupname.example.io | http(s)://groupname.example.io |
-| Project pages owned by a user | projectname | http(s)://username.example.io/projectname |
-| Project pages owned by a group | projectname | http(s)://groupname.example.io/projectname |
+| User project pages | projectname | http(s)://username.example.io/projectname |
+| Group project pages | projectname | http(s)://groupname.example.io/projectname |
 
 ---
 
