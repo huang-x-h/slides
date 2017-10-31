@@ -299,10 +299,13 @@ See more https://docs.gitlab.com/ee/user/project/pages/introduction.html
 # Description templates
 
 - Creating issue templates
-	Create a new Markdown (`.md`) file inside the `.gitlab/issue_templates/
+
+> Create a new Markdown (`.md`) file inside the `.gitlab/issue_templates/
 directory` in your repository
+
 - Creating merge request templates
-	Create a new Markdown (`.md`) file inside the
+
+> Create a new Markdown (`.md`) file inside the
 `.gitlab/merge_request_templates/` directory in your repository
 
 ---
@@ -311,8 +314,9 @@ directory` in your repository
 
 - `#Issue` Related Issues `#23`
 - `!MR` Related Merge Request `!23`
-- `@yourname/groupname` specific user/group  `@huang.xinghui`
+- `@yourname/groupname` Specific user/group  `@huang.xinghui`
 - `:emoji:` Emoji `:+1:`
+- Start the title with `WIP:` Prevent a Work In Progress merge request from being merged before it's ready
 
 See more https://docs.gitlab.com/ce/user/markdown.html
 
