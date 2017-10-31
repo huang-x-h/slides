@@ -39,6 +39,56 @@ See more http://nvie.com/posts/a-successful-git-branching-model/
 
 ---
 
+# Start with an issue
+
+![](./images/new-issue.png)
+
+---
+
+# Work In Progress
+
+1. New branch
+2. Coding / Push branch
+3. Create merge request
+
+![](./images/new-mr.png)
+
+---
+
+# Assign
+
+Merge Request Assignee
+
+![](./images/assign.png)
+
+---
+
+# Todos
+
+![](./images/todo.png)
+
+---
+
+# Code Review
+
+- Discussion
+- Change Code again
+- Pipeline passed
+
+![](./images/code-review.png)
+
+---
+
+# Merge
+
+![](./images/merge.png)
+
+---
+
+# Close Issue
+
+![](./images/close-issue.png)
+
 ---
 
 # Gitlab CI
