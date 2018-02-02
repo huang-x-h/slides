@@ -388,7 +388,6 @@ Woking Directory/Staging/Local Repository/Remote Repository 关系转换
 --
 
 ![](https://raw.githubusercontent.com/huang-x-h/slides/gh-pages/git-introduce/images/01.png)
-
 在 feature 分支开发， master 有新的提交需要合并
 
 --
