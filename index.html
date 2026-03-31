@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术分享幻灯片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            color: #00d4ff;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+            margin-bottom: 15px;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: #888;
+        }
+        
+        .slides-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .slide-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .slide-card:hover {
+            transform: translateY(-5px);
+            border-color: #00d4ff;
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+        }
+        
+        .slide-card h2 {
+            color: #00d4ff;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .slide-card p {
+            color: #888;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        
+        .slide-card .emoji {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #666;
+            font-size: 0.85em;
+        }
+        
+        footer a {
+            color: #00d4ff;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 技术分享幻灯片</h1>
+            <p class="subtitle">让知识触手可及</p>
+        </header>
+        
+        <div class="slides-grid">
+            <a href="pi-introduce.html" class="slide-card">
+                <div class="emoji">🚀</div>
+                <h2>Pi 编程助手介绍</h2>
+                <p>极简主义 OpenClaw 核心引擎 Pi，让 AI 编程回归本质</p>
+            </a>
+            
+            <a href="javascript-introduce/" class="slide-card">
+                <div class="emoji">☕</div>
+                <h2>JavaScript 介绍</h2>
+                <p>前端开发必备语言，快速入门 JavaScript</p>
+            </a>
+            
+            <a href="git-introduce/" class="slide-card">
+                <div class="emoji">🔀</div>
+                <h2>Git 介绍</h2>
+                <p>版本控制利器，掌握 Git 基本用法</p>
+            </a>
+            
+            <a href="node-introduce/" class="slide-card">
+                <div class="emoji">🟢</div>
+                <h2>Node.js 介绍</h2>
+                <p>JavaScript 运行时，深入了解 Node.js</p>
+            </a>
+            
+            <a href="node-npm/" class="slide-card">
+                <div class="emoji">📦</div>
+                <h2>Node Package Manager</h2>
+                <p>npm 包管理器的使用技巧</p>
+            </a>
+            
+            <a href="gitlab-introduce/" class="slide-card">
+                <div class="emoji">🦊</div>
+                <h2>GitLab in Action</h2>
+                <p>企业级 Git 协作平台实战</p>
+            </a>
+        </div>
+        
+        <footer>
+            <p>由 <a href="https://github.com/huang-x-h" target="_blank">@huang-x-h</a> 整理维护</p>
+        </footer>
+    </div>
+</body>
+</html>
