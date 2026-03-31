@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi 编程助手 - 产品介绍</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/black.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+        }
+        
+        .reveal {
+            font-family: 'Microsoft YaHei', 'PingFang SC', -apple-system, sans-serif;
+            font-size: 22px;
+        }
+        
+        .reveal .slides {
+            text-align: left;
+        }
+        
+        .reveal .slides section {
+            padding: 30px 60px;
+            max-width: 1600px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-sizing: border-box;
+        }
+        
+        .reveal h1 {
+            font-size: 1.8em;
+            color: #00d4ff;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+            border-bottom: 3px solid #00d4ff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .reveal h2 {
+            font-size: 1.4em;
+            color: #00ffaa;
+            text-shadow: 0 0 20px rgba(0, 255, 170, 0.3);
+            border-left: 3px solid #00ffaa;
+            padding-left: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .reveal h3 {
+            font-size: 1.1em;
+            color: #ffaa00;
+            margin-bottom: 10px;
+        }
+        
+        .reveal p {
+            font-size: 0.75em;
+            line-height: 1.5;
+            color: #c0c0c0;
+            margin-bottom: 10px;
+        }
+        
+        .reveal li {
+            font-size: 0.75em;
+            line-height: 1.6;
+            color: #c0c0c0;
+            margin-left: 15px;
+        }
+        
+        .reveal .highlight {
+            color: #00d4ff;
+            font-weight: bold;
+        }
+        
+        .reveal .success {
+            color: #00ff88;
+        }
+        
+        .reveal .warning {
+            color: #ffaa00;
+        }
+        
+        .reveal .error {
+            color: #ff5555;
+        }
+        
+        .reveal code {
+            background: rgba(0, 212, 255, 0.15);
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #00d4ff;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.85em;
+        }
+        
+        .reveal pre {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            border-radius: 6px;
+            padding: 10px;
+            margin: 8px 0;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+            overflow-x: auto;
+        }
+        
+        .reveal pre code {
+            background: transparent;
+            padding: 0;
+            color: #e0e0e0;
+            font-size: 1.25em;
+            line-height: 1.5;
+        }
+        
+        .reveal table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        
+        .reveal table th {
+            background: rgba(0, 212, 255, 0.2);
+            color: #00d4ff;
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 2px solid #00d4ff;
+            font-weight: bold;
+        }
+        
+        .reveal table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #c0c0c0;
+        }
+        
+        .reveal table tr:hover {
+            background: rgba(0, 212, 255, 0.1);
+        }
+        
+        .reveal blockquote {
+            background: rgba(0, 255, 170, 0.1);
+            border-left: 3px solid #00ffaa;
+            padding: 12px 18px;
+            margin: 10px 0;
+            font-style: normal;
+            color: #00ffaa;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .reveal blockquote p {
+            color: #00ffaa;
+            margin: 0;
+            font-size: 0.8em;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 10px 0;
+        }
+        
+        .columns {
+            display: flex;
+            gap: 30px;
+            margin: 10px 0;
+        }
+        
+        .columns > div {
+            flex: 1;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 8px 0;
+        }
+        
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        
+        .card p {
+            font-size: 0.85em;
+            margin-bottom: 0;
+            line-height: 1.4;
+        }
+        
+        .flow-diagram {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            margin: 10px 0;
+        }
+        
+        .flow-diagram .step {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.2);
+            border: 2px solid #00d4ff;
+            border-radius: 6px;
+            padding: 8px 14px;
+            margin: 5px;
+            color: #fff;
+            font-size: 0.75em;
+        }
+        
+        .flow-diagram .step small {
+            display: block;
+            color: #888;
+            font-size: 0.7em;
+            margin-top: 3px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.2);
+            border: 1px solid #00d4ff;
+            border-radius: 15px;
+            padding: 3px 10px;
+            font-size: 0.7em;
+            margin: 3px;
+            color: #fff;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 10px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #00d4ff, #00ffaa);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            background: #00d4ff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00d4ff;
+        }
+        
+        .timeline-item h3 {
+            margin-bottom: 6px;
+            font-size: 1em;
+        }
+        
+        .logo {
+            font-size: 3.5em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.1em;
+            color: #888;
+            margin-bottom: 30px;
+        }
+        
+        .author {
+            text-align: center;
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 30px;
+        }
+        
+        .emoji-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .emoji-list li {
+            padding: 4px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 0.9em;
+            color: #e0e0e0;
+        }
+        
+        .emoji-list li::before {
+            content: attr(data-emoji);
+            position: absolute;
+            left: 0;
+            font-size: 1em;
+        }
+        
+        .two-columns {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .two-columns > div {
+            flex: 1;
+        }
+        
+        .section-divider {
+            text-align: center;
+            padding: 60px 40px;
+            justify-content: center !important;
+        }
+        
+        .section-divider h1 {
+            font-size: 2.5em;
+            border: none;
+            text-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
+        }
+        
+        .thank-you {
+            text-align: center;
+        }
+        
+        .thank-you h1 {
+            font-size: 2.5em;
+            border: none;
+            margin-top: 30px;
+        }
+        
+        .thank-you .emoji {
+            font-size: 3em;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .mt-20 {
+            margin-top: 15px;
+        }
+        
+        .mt-30 {
+            margin-top: 20px;
+        }
+        
+        .mb-20 {
+            margin-bottom: 15px;
+        }
+        
+        .small-text {
+            font-size: 0.7em;
+            color: #888;
+        }
+        
+        .slide-content > *:first-child {
+            margin-top: 0;
+        }
+        
+        .slide-content > *:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- 封面 -->
+            <section class="section-divider">
+                <div class="logo">🚀</div>
+                <h1>极简主义 OpenClaw 核心引擎 Pi</h1>
+                <p class="subtitle">让 AI 编程回归本质：一个工具，无限可能</p>
+                <p class="author">面向：前端开发 · 后端开发 · 产品经理</p>
+            </section>
+
+            <!-- 目录 -->
+            <section class="slide-content">
+                <h1>📋 目录</h1>
+                <ul class="emoji-list">
+                    <li data-emoji="🎯">什么是 Pi？</li>
+                    <li data-emoji="📥">安装与配置</li>
+                    <li data-emoji="⚡">核心能力</li>
+                    <li data-emoji="🖥️">用户界面</li>
+                    <li data-emoji="🎮">四种运行模式</li>
+                    <li data-emoji="💡">使用方式与案例</li>
+                    <li data-emoji="🚀">快速上手</li>
+                </ul>
+            </section>
+
+            <!-- 什么是 Pi -->
+            <section class="slide-content">
+                <h1>🎯 什么是 Pi？</h1>
+                <h2>核心理念</h2>
+                <blockquote>
+                    "Adapt pi to your workflows, not the other way around"<br>
+                    让 pi 适应你的工作流程，而非相反
+                </blockquote>
+            </section>
+
+            <section class="slide-content">
+                <h2>关于作者</h2>
+                <div class="two-columns">
+                    <div class="card" style="background: rgba(0, 212, 255, 0.1); border-color: #00d4ff;">
+                        <h3>👤 作者</h3>
+                        <p><strong>Badlogic (Mario Zechner)</strong></p>
+                        <p class="small-text">游戏开发者、技术博客作者</p>
+                        <p class="small-text mt-10">
+                            GitHub: <a href="https://github.com/badlogic" target="_blank" style="color: #00d4ff;">@badlogic</a>
+                        </p>
+                        <p class="small-text">
+                            博客: <a href="https://mariozechner.at" target="_blank" style="color: #00d4ff;">mariozechner.at</a>
+                        </p>
+                    </div>
+                    <div class="card" style="background: rgba(255, 170, 0, 0.1); border-color: #ffaa00;">
+                        <h3>🎯 开发背景</h3>
+                        <p class="small-text">
+                            Badlogic 是资深游戏开发者，曾开发 <strong>libgdx</strong> (Java 游戏框架)。<br><br>
+                            他认为现有 AI 编程工具过于"臃肿"，内置太多功能反而限制了灵活性。
+                        </p>
+                        <p class="small-text mt-10">
+                            博客: <a href="https://mariozechner.at/posts/2025-11-30-pi-coding-agent/" target="_blank" style="color: #00d4ff;">开发理念文章</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="card mt-20" style="background: rgba(0, 255, 170, 0.1); border-color: #00ffaa;">
+                    <h3>💡 核心理念</h3>
+                    <ul>
+                        <li><strong>No MCP</strong> - 用 Skills + README 替代 MCP</li>
+                        <li><strong>No 子代理</strong> - 用 tmux 或 Extensions 实现</li>
+                        <li><strong>No 权限弹窗</strong> - 用容器或自定义确认</li>
+                        <li><strong>No Plan 模式</strong> - 写文件或构建自己的</li>
+                        <li><strong>No 内置 Todo</strong> - 用 TODO.md 或自定义实现</li>
+                        <li><strong>No 后台 bash</strong> - 用 tmux 保持可观察性</li>
+                    </ul>
+                    <p class="small-text mt-10" style="color: #888;">
+                        "Pi is aggressively extensible so it doesn't have to dictate your workflow."
+                    </p>
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <h2>关键特点</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>🔧 极简核心</h3>
+                        <p>内置基础工具（读、写、编辑、执行），无多余功能</p>
+                    </div>
+                    <div class="card">
+                        <h3>🧩 高度可扩展</h3>
+                        <p>通过 Extensions、Skills、Themes 自由定制</p>
+                    </div>
+                    <div class="card">
+                        <h3>📦 Pi Packages</h3>
+                        <p>npm/git 共享插件生态</p>
+                    </div>
+                    <div class="card">
+                        <h3>🖥️ 四种运行模式</h3>
+                        <p>交互式、打印输出、JSON、RPC</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <h2>与其他工具的对比</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>特性</th>
+                            <th>Pi</th>
+                            <th>Claude Code</th>
+                            <th>GitHub Copilot</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>子代理</td><td class="warning">按需构建</td><td class="success">✅ 内置</td><td class="success">✅ 内置</td></tr>
+                        <tr><td>Plan 模式</td><td class="warning">按需构建</td><td class="success">✅ 内置</td><td class="success">✅ 内置</td></tr>
+                        <tr><td>权限弹窗</td><td class="warning">按需构建</td><td class="success">✅ 内置</td><td class="warning">✅ 内置</td></tr>
+                        <tr><td>内置 Todo</td><td class="warning">按需构建</td><td class="success">✅ 内置</td><td class="success">✅ 内置</td></tr>
+                        <tr><td>MCP 集成</td><td class="warning">按需构建</td><td class="success">✅ 内置</td><td class="error">❌</td></tr>
+                        <tr><td>扩展性</td><td class="highlight">⭐⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐</td></tr>
+                        <tr><td>核心体积</td><td class="highlight">极小</td><td>中等</td><td>中等</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 安装与配置 -->
+            <section class="section-divider">
+                <h1>📥 安装与配置</h1>
+            </section>
+
+            <section class="slide-content">
+                <h2>系统要求</h2>
+                <ul>
+                    <li><span class="highlight">Git</span>: 用于会话存储和包管理
+                        <span class="small-text"> (<a href="https://git-scm.com/downloads" target="_blank" style="color: #00d4ff;">下载</a>)</span>
+                    </li>
+                    <li><span class="highlight">Node.js</span>: v18+ (推荐 v20+)
+                        <span class="small-text"> (<a href="https://nodejs.org/" target="_blank" style="color: #00d4ff;">下载</a>)</span>
+                    </li>
+                    <li><span class="highlight">包管理器</span>: npm, yarn, pnpm, bun</li>
+                    <li><span class="highlight">操作系统</span>: macOS, Linux, Windows, Termux (Android)</li>
+                </ul>
+            </section>
+
+            <section class="slide-content">
+                <h2>安装步骤</h2>
+                <pre><code># 1. 全局安装
+npm install -g @mariozechner/pi-coding-agent
+
+# 2. 验证安装
+pi --version
+
+# 3. 认证 (二选一)
+# 方式A: API Key
+export ANTHROPIC_API_KEY=sk-ant-...
+
+# 方式B: 订阅登录
+pi
+/login  # 交互式选择提供商</code></pre>
+            </section>
+
+            <section class="slide-content">
+                <h2>配置目录结构</h2>
+                <pre><code>~/.pi/agent/
+├── extensions/          # TypeScript 扩展
+├── skills/              # 技能包
+├── prompts/             # 提示模板
+├── themes/              # 主题文件
+├── sessions/            # 会话存储
+├── settings.json        # 全局设置
+├── auth.json            # API 密钥认证
+├── AGENTS.md            # 全局上下文
+└── SYSTEM.md            # 自定义系统提示</code></pre>
+            </section>
+
+            <section class="slide-content">
+                <h2>模型配置 (Providers)</h2>
+                <p>Pi 支持订阅服务和 API Key 两种认证方式，支持多种模型提供商</p>
+                <div class="two-columns">
+                    <div>
+                        <h3>订阅服务 (OAuth)</h3>
+                        <ul>
+                            <li>Claude Pro/Max</li>
+                            <li>ChatGPT Plus/Pro (Codex)</li>
+                            <li>GitHub Copilot</li>
+                            <li>Google Gemini CLI</li>
+                            <li>Google Antigravity</li>
+                        </ul>
+                        <p style="margin-top: 10px;"><code>/login</code> 交互式选择</p>
+                    </div>
+                    <div>
+                        <h3>API Key 方式</h3>
+                        <pre><code style="font-size: 0.75em;">export ANTHROPIC_API_KEY=sk-ant-...
+export OPENAI_API_KEY=sk-...
+export GEMINI_API_KEY=...
+export MINIMAX_API_KEY=...</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <h2>支持的 API Key 提供商</h2>
+                <table>
+                    <thead>
+                        <tr><th>提供商</th><th>环境变量</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Anthropic</td><td>ANTHROPIC_API_KEY</td></tr>
+                        <tr><td>OpenAI</td><td>OPENAI_API_KEY</td></tr>
+                        <tr><td>Google Gemini</td><td>GEMINI_API_KEY</td></tr>
+                        <tr><td>Azure OpenAI</td><td>AZURE_OPENAI_API_KEY</td></tr>
+                        <tr><td>Amazon Bedrock</td><td>AWS_ACCESS_KEY_ID / AWS_PROFILE</td></tr>
+                        <tr><td>Groq / Mistral / Cerebras / xAI</td><td>*_API_KEY</td></tr>
+                        <tr><td>OpenRouter / Hugging Face / Kimi</td><td>*_API_KEY / HF_TOKEN</td></tr>
+                        <tr><td>MiniMax</td><td>MINIMAX_API_KEY / MINIMAX_CN_API_KEY</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="slide-content">
+                <h2>认证文件 (auth.json)</h2>
+                <p>存储在 <code>~/.pi/agent/auth.json</code>，权限 0600</p>
+                <pre><code>{
+  "anthropic": { "type": "api_key", "key": "sk-ant-..." },
+  "openai": { "type": "api_key", "key": "sk-..." },
+  "google": { "type": "api_key", "key": "..." }
+}</code></pre>
+                <h3 style="margin-top: 15px;">Key 格式支持</h3>
+                <ul>
+                    <li><strong>直接值:</strong> <code>"key": "sk-ant-..."</code></li>
+                    <li><strong>环境变量:</strong> <code>"key": "MY_ANTHROPIC_KEY"</code></li>
+                    <li><strong>Shell 命令:</strong> <code>"key": "!security find-generic-password -ws 'anthropic'"</code></li>
+                </ul>
+                <p class="small-text mt-20">📚 参考: <a href="https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/providers.md" target="_blank" style="color: #00d4ff;">Provider 配置文档</a></p>
+            </section>
+
+            <section class="slide-content">
+                <h2>settings.json 配置样例</h2>
+                <p>全局配置: <code>~/.pi/agent/settings.json</code>，项目配置: <code>.pi/settings.json</code></p>
+                <pre style="max-height: 280px; overflow-x: auto; overflow-y: auto;"><code>{
+  // 思考层级: off, minimal, low, medium, high, xhigh
+  "thinkingLevel": "medium",
+  
+  // 压缩设置
+  "compaction": {
+    "enabled": true,
+    "trigger": "auto"
+  },
+  
+  // 重试设置
+  "retry": {
+    "enabled": true,
+    "maxRetries": 3
+  },
+  
+  // 消息投递模式
+  "steeringMode": "one-at-a-time",
+  "followUpMode": "one-at-a-time",
+  
+  // 传输协议: auto, sse, websocket
+  "transport": "auto",
+  
+  // 启用技能命令 (如 /skill:name)
+  "enableSkillCommands": true,
+  
+  // 默认工具
+  "tools": ["read", "bash", "edit", "write", "grep", "find", "ls"],
+  
+  // 默认模型
+  "defaultModel": "anthropic/claude-sonnet-4-5",
+  
+  // 技能目录
+  "skills": [
+    "~/.claude/skills"
+  ],
+  
+  // Shell 路径 (Windows 需要配置 Git Bash)
+  "shellPath": "C:\\Program Files\\Git\\bin\\bash.exe"
+}</code></pre>
+                <div class="card mt-20" style="background: rgba(255, 170, 0, 0.1); border-color: #ffaa00;">
+                    <h3>💡 shellPath 配置说明</h3>
+                    <ul>
+                        <li><strong>Windows:</strong> 建议配置为 Git Bash 路径，支持更好的 bash 命令</li>
+                        <li><strong>macOS/Linux:</strong> 通常无需配置，使用系统默认 shell</li>
+                        <li>配置位置: <code>~/.pi/agent/settings.json</code></li>
+                    </ul>
+                </div>
+                <p class="small-text mt-20">📚 参考: <a href="https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/settings.md" target="_blank" style="color: #00d4ff;">Settings 配置文档</a></p>
+            </section>
+
+            <!-- 核心能力 -->
+            <section class="section-divider">
+                <h1>⚡ Pi 的核心能力</h1>
+            </section>
+
+            <section class="slide-content">
+                <h2>Pi 能做什么？</h2>
+                <p>Pi 是一个极简但强大的 AI 编程助手，帮你完成各种代码任务</p>
+                <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="card" style="text-align: center;">
+                        <h3>📝 读写文件</h3>
+                        <p>读取、创建、编辑项目文件</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <h3>💻 执行命令</h3>
+                        <p>运行 shell、Git、构建工具</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <h3>🔍 搜索分析</h3>
+                        <p>搜索代码、查找文件</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <h3>💬 对话交互</h3>
+                        <p>自然语言沟通，理解需求</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <h3>🌲 分支探索</h3>
+                        <p>多方案对比，不丢失历史</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <h3>🧩 无限扩展</h3>
+                        <p>自定义工具、命令、主题</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <h2>1️⃣ 内置工具 - 代码操作的基础</h2>
+                <h3 style="color: #ffaa00;">AI 可以使用的 7 个基础工具</h3>
+                <table>
+                    <thead>
+                        <tr><th>工具</th><th>命令</th><th>能做什么</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>📖 read</td><td>内置</td><td>读取文件内容，支持大文件自动分片读取</td></tr>
+                        <tr><td>✏️ write</td><td>内置</td><td>创建新文件或覆盖整个文件</td></tr>
+                        <tr><td>🔄 edit</td><td>内置</td><td>精确替换文件中的特定文本（diff 编辑）</td></tr>
+                        <tr><td>💻 bash</td><td>内置</td><td>执行任何 shell 命令（npm, git, node...）</td></tr>
+                        <tr><td>🔍 grep</td><td>内置</td><td>在文件中搜索匹配的文本</td></tr>
+                        <tr><td>📁 find</td><td>内置</td><td>按名称或模式查找文件</td></tr>
+                        <tr><td>📄 ls</td><td>内置</td><td>列出目录内容和文件信息</td></tr>
+                    </tbody>
+                </table>
+                <div class="card mt-20" style="background: rgba(0, 255, 170, 0.1); border-color: #00ffaa;">
+                    <p style="color: #fff; font-size: 0.9em;">
+                        💡 <strong>工作原理：</strong>当你描述一个任务时，AI 会分析需要哪些工具，<br>
+                        然后自动调用相应的工具来完成任务。比如你说"帮我创建登录页面"，<br>
+                        AI 会用 read 了解项目结构，用 write/edit 创建文件，用 bash 启动服务器预览
+                    </p>
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <h2>2️⃣ 会话管理 - 不丢失任何工作</h2>
+                <h3 style="color: #ffaa00;">智能保存与恢复</h3>
+                <div class="two-columns">
+                    <div>
+                        <h3>📁 自动保存</h3>
+                        <p>会话自动保存到 <code>~/.pi/agent/sessions/</code></p>
+                        <ul>
+                            <li>按工作目录自动分类</li>
+                            <li>JSONL 格式，保留完整历史</li>
+                            <li>即使重启也不会丢失</li>
+                        </ul>
+                        <h3 style="margin-top: 20px;">⏯️ 继续会话</h3>
+                        <ul>
+                            <li><code>pi -c</code> 继续上次会话</li>
+                            <li><code>pi -r</code> 选择历史会话</li>
+                            <li><code>pi --session &lt;id&gt;</code> 指定会话</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>🌲 树形结构</h3>
+                        <p>支持分支，保留所有探索路径</p>
+                        <pre><code># 查看会话树
+/tree
+
+# 从某点创建新分支
+/fork
+
+# 标记重要节点
+/l  # 按 l 键标记</code></pre>
+                        <h3 style="margin-top: 15px;">📦 对话压缩</h3>
+                        <p>长会话自动压缩总结，节省 token</p>
+                        <ul>
+                            <li>自动触发（上下文快满时）</li>
+                            <li><code>/compact</code> 手动压缩</li>
+                            <li>原始历史仍保存在文件中</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <h2>3️⃣ 分支探索 - 同时尝试多个方案</h2>
+                <h3 style="color: #ffaa00;">不怕试错，随时回退</h3>
+                <div style="text-align: center; margin: 20px 0;">
+                    <div class="flow-diagram" style="display: inline-block;">
+                        <div class="step" style="background: rgba(0, 212, 255, 0.3);">[需求] 用户反馈系统</div>
+                        <div style="margin: 15px 0; color: #888;">│ 探索不同技术方案</div>
+                        <div style="display: flex; justify-content: center; gap: 25px;">
+                            <div style="text-align: center;">
+                                <div class="step" style="background: rgba(0, 255, 170, 0.2); font-size: 0.8em;">方案A: REST API</div>
+                                <p class="success" style="font-size: 0.75em;">采纳 ✓</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div class="step" style="background: rgba(255, 170, 0, 0.2); font-size: 0.8em;">方案B: GraphQL</div>
+                                <p class="warning" style="font-size: 0.75em;">评估中</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div class="step" style="background: rgba(255, 85, 85, 0.2); font-size: 0.8em;">方案C: tRPC</div>
+                                <p class="error" style="font-size: 0.75em;">回退</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="two-columns">
+                    <div class="card">
+                        <h3>/tree 命令</h3>
+                        <ul>
+                            <li>查看所有分支和历史</li>
+                            <li>跳转到任意历史点</li>
+                            <li>给重要节点打标签</li>
+                            <li>筛选：用户消息/工具调用</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>/fork 命令</h3>
+                        <ul>
+                            <li>从当前点创建新分支</li>
+                            <li>不影响原分支</li>
+                            <li>适合 A/B 测试方案</li>
+                            <li>可指定分支点</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <h2>4️⃣ 多模型支持 - 灵活切换</h2>
+                <h3 style="color: #ffaa00;">支持 20+ 模型提供商</h3>
+                <div class="two-columns">
+                    <div>
+                        <h3>🅰️ 订阅服务（OAuth）</h3>
+                        <ul>
+                            <li>Claude Pro / Max</li>
+                            <li>ChatGPT Plus / Pro / Codex</li>
+                            <li>GitHub Copilot</li>
+                            <li>Google Gemini CLI</li>
+                            <li>Google Antigravity</li>
+                        </ul>
+                        <p style="margin-top: 10px;"><code>/login</code> 一键登录</p>
+                    </div>
+                    <div>
+                        <h3>🔑 API Key 方式</h3>
+                        <ul>
+                            <li>Anthropic / OpenAI / Google</li>
+                            <li>Azure OpenAI</li>
+                            <li>Amazon Bedrock</li>
+                            <li>Groq / Mistral / Cerebras</li>
+                            <li>Hugging Face / Kimi / MiniMax</li>
+                            <li>xAI / OpenRouter / Vercel AI</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mt-20" style="background: rgba(0, 212, 255, 0.1); border-color: #00d4ff;">
+                    <h3>切换模型</h3>
+                    <div class="two-columns">
+                        <div>
+                            <p><strong>交互式：</strong></p>
+                            <ul>
+                                <li><code>/model</code> - 打开选择器</li>
+                                <li><code>Ctrl+P</code> - 循环切换</li>
+                                <li><code>Shift+Tab</code> - 切换思考层级</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p><strong>命令行：</strong></p>
+                            <ul>
+                                <li><code>--model anthropic/claude-sonnet-4</code></li>
+                                <li><code>--model sonnet:high</code> - 带思考层级</li>
+                                <li><code>--list-models</code> - 列出所有模型</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <h2>5️⃣ 思考层级 - 按需调整</h2>
+                <h3 style="color: #ffaa00;">6 个思考级别，适应不同任务</h3>
+                <table>
+                    <thead>
+                        <tr><th>层级</th><th>速度</th><th>深度</th><th>适用场景</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>off</td><td>⚡⚡⚡⚡⚡</td><td>基础</td><td>简单查询、格式化输出</td></tr>
+                        <tr><td>minimal</td><td>⚡⚡⚡⚡</td><td>略深</td><td>简单编码任务</td></tr>
+                        <tr><td>low</td><td>⚡⚡⚡</td><td>中等</td><td>常规开发任务</td></tr>
+                        <tr><td>medium</td><td>⚡⚡</td><td>较深</td><td>复杂逻辑、调试</td></tr>
+                        <tr><td>high</td><td>⚡</td><td>深入</td><td>架构设计、疑难问题</td></tr>
+                        <tr><td>xhigh</td><td>🐢</td><td>最深</td><td>深度推理（仅 Codex Max）</td></tr>
+                    </tbody>
+                </table>
+                <div class="card mt-20" style="background: rgba(255, 170, 0, 0.1); border-color: #ffaa00;">
+                    <p style="color: #fff; font-size: 0.9em;">
+                        💡 <strong>提示：</strong>简单任务用 <code>off</code> 省钱快速，<br>
+                        复杂问题用 <code>high</code> 获得更深入的推理。可以用 <code>/compact</code> 减少 token 消耗
+                    </p>
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <h2>6️⃣ 消息队列 - 边工作边指挥</h2>
+                <h3 style="color: #ffaa00;">AI 工作时，你仍可以发消息</h3>
+                <div class="two-columns">
+                    <div>
+                        <h3>⌨️ 快捷发送</h3>
+                        <table>
+                            <thead>
+                                <tr><th>按键</th><th>类型</th><th>时机</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Enter</strong></td><td>转向消息</td><td>当前 turn 结束后发送</td></tr>
+                                <tr><td><strong>Alt+Enter</strong></td><td>后续消息</td><td>AI 完全停止后发送</td></tr>
+                                <tr><td><strong>Escape</strong></td><td>取消</td><td>中止并恢复消息到编辑器</td></tr>
+                                <tr><td><strong>Alt+↑</strong></td><td>取出</td><td>把队列消息拿回编辑器</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <h3>💬 使用场景</h3>
+                        <ul>
+                            <li>AI 跑测试时，告诉它修复什么</li>
+                            <li>方向错了，临时改需求</li>
+                            <li>AI 完成后，自动执行下一步</li>
+                            <li>中断长时间运行的任务</li>
+                        </ul>
+                        <div class="card mt-20" style="padding: 10px;">
+                            <p style="font-size: 0.8em;">
+                                <strong>Windows 用户：</strong><br>
+                                Alt+Enter 默认是全屏快捷键<br>
+                                需要在终端设置中重新映射
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <h2>7️⃣ 可扩展架构 - 无限可能</h2>
+                <h3 style="color: #ffaa00;">Pi 的三大扩展机制</h3>
+                <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="card">
+                        <h3>🧩 Skill</h3>
+                        <p style="font-size: 0.85em;">技能包（Agent Skills 标准）</p>
+                        <ul style="font-size: 0.75em;">
+                            <li>Markdown 文件格式</li>
+                            <li>按需加载</li>
+                            <li>可包含脚本和文档</li>
+                        </ul>
+                        <p style="font-size: 0.7em; color: #888; margin-top: 10px;">
+                            示例：网页搜索、PDF处理、浏览器自动化
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3>📜 Prompt Template</h3>
+                        <p style="font-size: 0.85em;">提示模板（Markdown）</p>
+                        <ul style="font-size: 0.75em;">
+                            <li>复用常用提示词</li>
+                            <li>支持变量占位符</li>
+                            <li>通过 <code>/name</code> 快速调用</li>
+                        </ul>
+                        <p style="font-size: 0.7em; color: #888; margin-top: 10px;">
+                            示例：代码审查、翻译、文档生成
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3>⚙️ Extension</h3>
+                        <p style="font-size: 0.85em;">TypeScript 扩展（最强）</p>
+                        <ul style="font-size: 0.75em;">
+                            <li>自定义工具和命令</li>
+                            <li>拦截/修改行为</li>
+                            <li>完整 UI 定制</li>
+                        </ul>
+                        <p style="font-size: 0.7em; color: #888; margin-top: 10px;">
+                            示例：安全检查、Git 集成、游戏
+                        </p>
+                    </div>
+                </div>
+                <div class="card mt-20" style="background: rgba(0, 255, 170, 0.1); border-color: #00ffaa;">
+                    <h3>🎮 安装扩展包</h3>
+                    <pre><code># 从 npm 安装
+pi install npm:@foo/pi-tools
+
+# 从 Git 安装
+pi install git:github.com/user/repo
+
+# 查看已安装
+pi list
+
+# 管理配置
+pi config</code></pre>
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <h2>8️⃣ 上下文文件 - 项目知识库</h2>
+                <h3 style="color: #ffaa00;">自动加载项目说明和约定</h3>
+                <div class="two-columns">
+                    <div>
+                        <h3>📄 AGENTS.md</h3>
+                        <p>项目级别的 AI 指导文件</p>
+                        <pre><code># 在这些位置自动加载
+~/.pi/agent/AGENTS.md       # 全局
+项目根目录/AGENTS.md        # 项目
+上级目录/AGENTS.md         # 逐级向上查找</code></pre>
+                        <h3 style="margin-top: 15px;">📋 常用内容</h3>
+                        <ul>
+                            <li>代码规范和风格</li>
+                            <li>常用命令别名</li>
+                            <li>项目架构说明</li>
+                            <li>禁止的操作</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>🎯 SYSTEM.md</h3>
+                        <p>替换默认系统提示</p>
+                        <pre><code># 放置位置
+~/.pi/agent/SYSTEM.md      # 全局
+项目/.pi/SYSTEM.md         # 项目级
+
+# APPEND_SYSTEM.md        # 追加而非替换</code></pre>
+                        <div class="card mt-20" style="padding: 10px;">
+                            <p style="font-size: 0.8em;">
+                                💡 <strong>技巧：</strong>在 AGENTS.md 中写项目规范，<br>
+                                AI 会自动遵守你团队的约定
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 用户界面 -->
+            <section class="section-divider">
+                <h1>🖥️ 用户界面</h1>
+            </section>
+
+            <section class="slide-content">
+                <h2>交互模式布局</h2>
+                <pre><code>┌─────────────────────────────────────────────┐
+│  [Startup Header: 快捷键/技能/扩展]         │
+├─────────────────────────────────────────────┤
+│  [Messages Area]                            │
+│  ├── 你的消息                               │
+│  ├── AI 响应                               │
+│  ├── 工具调用和结果                         │
+│  ├── 通知和错误                             │
+│  └── 扩展 UI                               │
+├─────────────────────────────────────────────┤
+│  [Editor - 输入区域]                        │
+│  边框颜色表示思考层级                        │
+├─────────────────────────────────────────────┤
+│  [Footer: 目录|会话|Token|费用|模型]        │
+└─────────────────────────────────────────────┘</code></pre>
+            </section>
+
+            <section class="slide-content">
+                <h2>核心快捷键</h2>
+                <table>
+                    <thead>
+                        <tr><th>快捷键</th><th>功能</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Ctrl+C</td><td>清空编辑器 / 退出</td></tr>
+                        <tr><td>Escape</td><td>取消/中止</td></tr>
+                        <tr><td>Ctrl+L</td><td>切换模型</td></tr>
+                        <tr><td>Ctrl+P</td><td>循环切换可用模型</td></tr>
+                        <tr><td>Shift+Tab</td><td>切换思考层级</td></tr>
+                        <tr><td>Ctrl+O</td><td>折叠/展开工具输出</td></tr>
+                        <tr><td>@</td><td>引用项目文件</td></tr>
+                        <tr><td>!command</td><td>执行并发送给 LLM</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="slide-content">
+                <h2>常用命令</h2>
+                <table>
+                    <thead>
+                        <tr><th>命令</th><th>功能</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>/login</td><td>OAuth 认证</td></tr>
+                        <tr><td>/model</td><td>切换模型</td></tr>
+                        <tr><td>/settings</td><td>打开设置</td></tr>
+                        <tr><td>/new</td><td>新建会话</td></tr>
+                        <tr><td>/tree</td><td>会话树导航</td></tr>
+                        <tr><td>/fork</td><td>从当前分支创建新会话</td></tr>
+                        <tr><td>/compact</td><td>手动压缩上下文</td></tr>
+                        <tr><td>/export</td><td>导出会话为 HTML</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 四种运行模式 -->
+            <section class="section-divider">
+                <h1>🎮 四种运行模式</h1>
+            </section>
+
+            <section class="slide-content">
+                <h2>官方定义（pi.dev）</h2>
+                <blockquote>
+                    "Pi runs in four modes: interactive, print or JSON, RPC for process integration, and an SDK for embedding in your own apps."
+                </blockquote>
+            </section>
+
+            <section class="slide-content">
+                <h2>模式总览</h2>
+                <table>
+                    <thead>
+                        <tr><th>模式</th><th>命令</th><th>使用场景</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><span class="highlight">交互模式</span></td><td>pi (默认)</td><td>日常编程、复杂任务</td></tr>
+                        <tr><td><span class="highlight">打印模式</span></td><td>pi -p</td><td>快速查询、单次任务</td></tr>
+                        <tr><td><span class="highlight">JSON 模式</span></td><td>pi --mode json</td><td>集成到其他工具</td></tr>
+                        <tr><td><span class="highlight">RPC 模式</span></td><td>pi --mode rpc</td><td>嵌入 IDE/应用</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="slide-content">
+                <h2>1️⃣ 交互模式 (Interactive)</h2>
+                <h3 style="color: #ffaa00;">最常用的模式，完整的终端 UI</h3>
+                <pre><code># 基本启动
+pi
+
+# 带初始提示
+pi "帮我创建一个 React 登录页面"
+
+# 继续上次会话
+pi -c
+
+# 浏览选择历史会话
+pi -r</code></pre>
+                <p class="small-text mt-20">特点: TUI 界面、会话保存、实时交互、流式输出</p>
+            </section>
+
+            <section class="slide-content">
+                <h2>2️⃣ 打印模式 (Print Mode)</h2>
+                <h3 style="color: #ffaa00;">非交互式，适合脚本和管道操作</h3>
+                <pre><code># 打印输出后退出
+pi -p "列出 src 目录下的 TypeScript 文件"
+
+# 管道输入
+cat README.md | pi -p "总结这段文本"
+
+# 带文件引用
+pi @code.ts @test.ts "Review these files"
+
+# 只读审查模式
+pi --tools read,grep,find,ls -p "审查代码 bug"</code></pre>
+                <p class="small-text mt-20">特点: 单次执行、自动退出、支持管道、适合 CI/CD</p>
+            </section>
+
+            <section class="slide-content">
+                <h2>3️⃣ JSON 模式 (JSON Event Stream)</h2>
+                <h3 style="color: #ffaa00;">输出完整的事件流，用于集成到其他工具</h3>
+                <pre><code># 基本用法
+pi --mode json "List files"
+
+# 输出格式示例
+{"type":"session","version":3,"id":"uuid"}
+{"type":"agent_start"}
+{"type":"message_update","assistantMessageEvent":{"type":"text_delta","delta":"Hello"}}
+{"type":"agent_end","messages":[...]}
+
+# 实用命令
+pi --mode json "List files" | jq -c 'select(.type == "message_end")'</code></pre>
+            </section>
+
+            <section class="slide-content">
+                <h2>4️⃣ RPC 模式 (RPC Mode)</h2>
+                <h3 style="color: #ffaa00;">完整的 API 接口，用于嵌入其他应用</h3>
+                <div class="two-columns">
+                    <div>
+                        <h3>核心命令</h3>
+                        <ul>
+                            <li>prompt - 发送用户消息</li>
+                            <li>steer - 队列转向消息</li>
+                            <li>follow_up - 队列后续消息</li>
+                            <li>abort - 中止当前操作</li>
+                            <li>new_session - 开始新会话</li>
+                            <li>set_model - 切换模型</li>
+                            <li>compact - 压缩上下文</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>应用场景</h3>
+                        <ul>
+                            <li>🖥️ 嵌入 IDE/编辑器插件</li>
+                            <li>🌐 构建 Web 应用前端</li>
+                            <li>📱 开发桌面应用</li>
+                            <li>🤖 机器人/自动化工具</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <h2>模式对比总结</h2>
+                <table>
+                    <thead>
+                        <tr><th>特性</th><th>交互</th><th>打印</th><th>JSON</th><th>RPC</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>TUI 界面</td><td class="success">✅</td><td class="error">❌</td><td class="error">❌</td><td class="error">❌</td></tr>
+                        <tr><td>流式输出</td><td class="success">✅</td><td class="success">✅</td><td class="success">✅</td><td class="success">✅</td></tr>
+                        <tr><td>会话保存</td><td class="success">✅</td><td class="success">✅</td><td class="success">✅</td><td class="success">✅</td></tr>
+                        <tr><td>适合日常</td><td class="success">✅</td><td class="success">✅</td><td class="error">❌</td><td class="error">❌</td></tr>
+                        <tr><td>适合脚本</td><td class="error">❌</td><td class="success">✅</td><td class="success">✅</td><td class="success">✅</td></tr>
+                        <tr><td>适合集成</td><td class="error">❌</td><td class="error">❌</td><td class="success">✅</td><td class="success">✅</td></tr>
+                        <tr><td>完整 API</td><td class="error">❌</td><td class="error">❌</td><td class="error">❌</td><td class="success">✅</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 使用方式与案例 -->
+            <section class="section-divider">
+                <h1>💡 使用方式与案例</h1>
+            </section>
+
+            <section class="slide-content">
+                <h2>使用方式总览</h2>
+                <p>Pi 支持多种使用方式，适应不同工作流程</p>
+                <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="card" style="text-align: center;">
+                        <h3>🎵 Vibe Coding</h3>
+                        <p>自然语言描述，AI 实现</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <h3>📐 需求分析</h3>
+                        <p>PM 描述 → 技术方案</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <h3>🔮 方案探索</h3>
+                        <p>多方案对比分析</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <h3>🛠️ 代码重构</h3>
+                        <p>审查、改进、重写</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <h3>📚 学习新技术</h3>
+                        <p>边学边做，实战上手</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <h3>🔧 自动化任务</h3>
+                        <p>脚本、管道、批处理</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <h2>1️⃣ Vibe Coding - 自然语言编程</h2>
+                <h3 style="color: #ffaa00;">用自然语言描述想法，AI 直接帮你实现</h3>
+                <div class="two-columns">
+                    <div>
+                        <div class="card" style="background: rgba(0, 212, 255, 0.1); border-color: #00d4ff;">
+                            <p style="color: #fff; font-size: 0.85em;">
+                                "创建一个好看的 React 登录页面，包含邮箱和密码输入框、记住我复选框、登录按钮，使用渐变背景和 Tailwind CSS"
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Pi 执行流程</h3>
+                        <div class="flow-diagram" style="padding: 10px;">
+                            <span class="step" style="font-size: 0.7em;">读取项目</span>
+                            <span style="color: #00ffaa;">→</span>
+                            <span class="step" style="font-size: 0.7em;">创建组件</span>
+                            <span style="color: #00ffaa;">→</span>
+                            <span class="step" style="font-size: 0.7em;">启动预览</span>
+                            <span style="color: #00ffaa;">→</span>
+                            <span class="step" style="font-size: 0.7em;">完成</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <h2>2️⃣ 需求分析 - PM → 技术方案</h2>
+                <h3 style="color: #ffaa00;">产品经理描述需求，AI 生成完整技术方案</h3>
+                <div class="two-columns">
+                    <div class="card" style="background: rgba(255, 170, 0, 0.1); border-color: #ffaa00;">
+                        <h3>PM 输入</h3>
+                        <p>• 用户提交文字反馈</p>
+                        <p>• 支持上传截图</p>
+                        <p>• 支持匿名提交</p>
+                        <p>• 后台查看所有反馈</p>
+                        <p>• 标记状态（待处理/处理中/已解决）</p>
+                        <p>• 邮件通知管理员</p>
+                    </div>
+                    <div class="card" style="background: rgba(0, 255, 170, 0.1); border-color: #00ffaa;">
+                        <h3>AI 输出</h3>
+                        <p>• API 设计 (REST/GraphQL)</p>
+                        <p>• 数据库 Schema (Prisma/Drizzle)</p>
+                        <p>• 前端组件 (React/Vue)</p>
+                        <p>• 文件上传服务集成</p>
+                        <p>• 邮件通知服务</p>
+                        <p>• 状态管理方案</p>
+                    </div>
+                </div>
+                <p class="success text-center mt-20">节省开发时间 60%+</p>
+            </section>
+
+            <section class="slide-content">
+                <h2>3️⃣ 方案探索 - 多方案对比</h2>
+                <h3 style="color: #ffaa00;">头脑风暴，探索不同实现路径</h3>
+                <div class="card" style="background: rgba(0, 212, 255, 0.1); border-color: #00d4ff; text-align: center; margin-bottom: 20px;">
+                    <p style="color: #fff; font-size: 0.9em;">
+                        "我想实现实时协作编辑功能，有什么方案？<br>
+                        考虑冲突解决、100人同时编辑、离线支持"
+                    </p>
+                </div>
+                <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="card" style="text-align: center;">
+                        <h3 style="color: #00d4ff;">OT 方案</h3>
+                        <p>Operational Transform</p>
+                        <p class="small-text">Google Docs 早期方案</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <h3 style="color: #00ffaa;">CRDT 方案</h3>
+                        <p>Conflict-free Replicated</p>
+                        <p class="small-text">分布式友好，自动合并</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <h3 style="color: #ffaa00;">混合方案</h3>
+                        <p>中心协调 + CRDT</p>
+                        <p class="small-text">性能与一致性平衡</p>
+                    </div>
+                </div>
+                <p class="small-text text-center mt-20">使用 /fork 分支探索不同方案，对比结果后选择最优</p>
+            </section>
+
+            <section class="slide-content">
+                <h2>4️⃣ 代码重构 - 质量改进</h2>
+                <h3 style="color: #ffaa00;">自动化代码审查与改进建议</h3>
+                <div class="two-columns">
+                    <div>
+                        <h3>Pi 帮你发现</h3>
+                        <ul>
+                            <li>🔍 重复代码块</li>
+                            <li>🐛 潜在的 bug</li>
+                            <li>⚡ 性能瓶颈</li>
+                            <li>🔒 安全漏洞</li>
+                            <li>📦 依赖问题</li>
+                            <li>📝 代码风格不一致</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>执行命令</h3>
+                        <pre><code># 只读审查模式
+pi --tools read,grep,find,ls \
+  -p "Review and refactor this codebase"
+
+# 交互式重构
+pi
+/review  # 使用自定义 prompt</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <h2>5️⃣ 学习新技术 - 边做边学</h2>
+                <h3 style="color: #ffaa00;">实战中快速上手新框架/库</h3>
+                <div class="card" style="background: rgba(0, 212, 255, 0.1); border-color: #00d4ff; margin-bottom: 20px;">
+                    <p style="color: #fff; font-size: 0.9em;">
+                        "我需要用 Next.js 14 App Router 创建一个博客，使用 TypeScript、Prisma + PostgreSQL，实现 MDX 文章渲染和评论区，请从头解释并实现"
+                    </p>
+                </div>
+                <div class="flow-diagram">
+                    <span class="step" style="background: rgba(0, 212, 255, 0.2);">项目初始化</span>
+                    <span style="color: #00ffaa;">→</span>
+                    <span class="step" style="background: rgba(0, 255, 170, 0.2);">概念讲解</span>
+                    <span style="color: #00ffaa;">→</span>
+                    <span class="step" style="background: rgba(255, 170, 0, 0.2);">代码实现</span>
+                    <span style="color: #00ffaa;">→</span>
+                    <span class="step" style="background: rgba(0, 212, 255, 0.2);">调试运行</span>
+                    <span style="color: #00ffaa;">→</span>
+                    <span class="step" style="background: rgba(0, 255, 170, 0.2);">完成</span>
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <h2>6️⃣ 自动化任务 - 管道与脚本</h2>
+                <h3 style="color: #ffaa00;">非交互模式，适合 CI/CD 和批处理</h3>
+                <div class="two-columns">
+                    <div>
+                        <h3>管道操作</h3>
+                        <pre><code># 总结文档
+cat README.md | pi -p "总结"
+
+# 代码审查
+pi @file1.ts @file2.ts "Review"
+
+# 管道输出
+git diff | pi -p "解释这个改动"</code></pre>
+                    </div>
+                    <div>
+                        <h3>批量处理</h3>
+                        <pre><code># 只读模式审查
+pi --tools read,grep,find,ls \
+  -p "Find security issues"
+
+# JSON 事件流 (集成工具)
+pi --mode json "List files" | \
+  jq -c 'select(.type == "tool_result")'</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <h2>7️⃣ 会话分支探索 - 多路径尝试</h2>
+                <h3 style="color: #ffaa00;">/tree 和 /fork 实现并行方案探索</h3>
+                <div style="text-align: center;">
+                    <div class="flow-diagram" style="display: inline-block;">
+                        <div class="step" style="background: rgba(0, 212, 255, 0.3);">[根节点] 需求</div>
+                        <div style="margin: 15px 0;">
+                            <span style="color: #00d4ff;">├─</span>
+                            <span style="color: #00ffaa;">──</span>
+                            <span style="color: #ffaa00;">──┤</span>
+                        </div>
+                        <div style="display: flex; justify-content: center; gap: 30px;">
+                            <div>
+                                <div class="step" style="background: rgba(0, 255, 170, 0.2);">方案A</div>
+                                <p class="success" style="font-size: 0.8em;">采纳 ✓</p>
+                            </div>
+                            <div>
+                                <div class="step" style="background: rgba(255, 170, 0, 0.2);">方案B</div>
+                                <p class="warning" style="font-size: 0.8em;">细化中</p>
+                            </div>
+                            <div>
+                                <div class="step" style="background: rgba(255, 85, 85, 0.2);">方案C</div>
+                                <p class="error" style="font-size: 0.8em;">回退</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="two-columns mt-20">
+                    <div>
+                        <h3>相关命令</h3>
+                        <ul>
+                            <li><code>/tree</code> - 查看/切换会话分支</li>
+                            <li><code>/fork</code> - 从当前点创建新分支</li>
+                            <li><code>/compact</code> - 压缩上下文</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>使用场景</h3>
+                        <ul>
+                            <li>对比不同实现方案</li>
+                            <li>探索技术可行性</li>
+                            <li>A/B 测试代码方案</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <h2>8️⃣ SDK 嵌入集成</h2>
+                <h3 style="color: #ffaa00;">将 Pi 能力嵌入你的应用</h3>
+                <div class="two-columns">
+                    <div>
+                        <h3>SDK 使用场景</h3>
+                        <ul>
+                            <li>🌐 Web 应用前端</li>
+                            <li>📱 桌面应用</li>
+                            <li>🤖 机器人/自动化</li>
+                            <li>🧪 测试框架</li>
+                            <li>🔧 自定义工具</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>SDK 示例</h3>
+                        <pre><code>import { createAgentSession } 
+  from "@mariozechner/pi-coding-agent";
+
+const { session } = await createAgentSession({
+  model: myModel,
+  tools: [readTool, bashTool],
+});
+
+session.subscribe((event) => {
+  // 处理事件
+});
+
+await session.prompt("Hello!");</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 快速上手 -->
+            <section class="section-divider">
+                <h1>🚀 快速上手</h1>
+            </section>
+
+            <section class="slide-content">
+                <h2>四步开始</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3 style="color: #00d4ff;">第一步：安装</h3>
+                        <pre><code>npm install -g @mariozechner/pi-coding-agent</code></pre>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 style="color: #00ffaa;">第二步：认证</h3>
+                        <pre><code>export ANTHROPIC_API_KEY=sk-ant-...
+# 或
+pi /login</code></pre>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 style="color: #ffaa00;">第三步：开始对话</h3>
+                        <pre><code>pi
+# 或直接指定任务
+pi "帮我创建一个用户登录页面"</code></pre>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 style="color: #ff5555;">第四步：探索高级功能</h3>
+                        <pre><code>/model      # 切换模型
+/hotkeys    # 查看快捷键
+/skill:xxx  # 使用技能</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 资源链接 -->
+            <section class="slide-content">
+                <h2>📚 资源链接</h2>
+                <table>
+                    <thead>
+                        <tr><th>资源</th><th>链接</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>官网</td><td>https://pi.dev</td></tr>
+                        <tr><td>npm</td><td>npmjs.com/package/@mariozechner/pi-coding-agent</td></tr>
+                        <tr><td>GitHub</td><td>github.com/badlogic/pi-mono</td></tr>
+                        <tr><td>Discord</td><td>discord.com/invite/3cU7Bz4UPx</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="slide-content">
+                <h2>社区技能包</h2>
+                <div class="two-columns">
+                    <div class="card">
+                        <h3 style="color: #00d4ff;">Anthropic Skills</h3>
+                        <p>github.com/anthropics/skills</p>
+                        <p>• 文档处理 (docx, pdf, pptx, xlsx)</p>
+                        <p>• Web 开发</p>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: #00ffaa;">Pi Skills</h3>
+                        <p>github.com/badlogic/pi-skills</p>
+                        <p>• 网页搜索</p>
+                        <p>• 浏览器自动化</p>
+                        <p>• Google APIs</p>
+                        <p>• 语音转录</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 谢谢观看 -->
+            <section class="thank-you">
+                <div class="emoji">🎉</div>
+                <h1>谢谢观看！</h1>
+                <p style="font-size: 1.2em; margin-top: 30px;">
+                    有任何问题，欢迎在 Discord 社区交流！
+                </p>
+                <div style="margin-top: 40px;">
+                    <span class="badge">pi.dev</span>
+                    <span class="badge">discord.gg/3cU7Bz4UPx</span>
+                    <span class="badge">github.com/badlogic/pi-mono</span>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: 'c/t',
+            showSlideNumber: 'all',
+            progress: true,
+            controls: true,
+            controlsTutorial: true,
+            controlsLayout: 'bottom-right',
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+            center: false
+        });
+    </script>
+</body>
+</html>
