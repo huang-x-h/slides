@@ -4,4 +4,5 @@
 - [Git Introduce](http://huang-x-h.github.io/slides/git-introduce)
 - [Node Introduce](http://huang-x-h.github.io/slides/node-introduce/)
 - [Node Package Manager](http://huang-x-h.github.io/slides/node-npm/)
-- [Gitlab in Action](http://huang-x-h.github.io/slides/gitlab-introduce/) 
+- [Gitlab in Action](http://huang-x-h.github.io/slides/gitlab-introduce/)
+- [Pi 编程助手介绍](http://huang-x-h.github.io/slides/pi-introduce) 
